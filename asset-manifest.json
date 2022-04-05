@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/rankingsongs/static/css/main.c93cc3fe.css",
+    "main.js": "/rankingsongs/static/js/main.ce6192a5.js",
+    "index.html": "/rankingsongs/index.html",
+    "main.c93cc3fe.css.map": "/rankingsongs/static/css/main.c93cc3fe.css.map",
+    "main.ce6192a5.js.map": "/rankingsongs/static/js/main.ce6192a5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c93cc3fe.css",
+    "static/js/main.ce6192a5.js"
+  ]
+}
