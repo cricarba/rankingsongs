@@ -1,0 +1,16 @@
+.container-leaderboard {
+    display: grid;
+    grid-template-columns: auto auto ;
+    grid-template-rows: auto;  
+    align-items: center;
+    text-align: justify;
+}
+.title {
+    font-size: 2em;
+    color: #fff;
+}
+
+span{
+    font-size: 0.8em;
+    color: #fff;
+}

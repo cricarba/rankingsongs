@@ -1,0 +1,14 @@
+.search-input{
+    background: rgb(160,65,254);
+    background: linear-gradient(90deg, rgba(160,65,254,1) 0%, rgba(137,115,223,0.6890951276102089) 35%, rgb(102, 197, 171) 100%);
+    border:none;
+    padding: 15px;
+    color:#fff;
+    width: 90%; 
+    border-radius: 23px;
+    letter-spacing: 0.3px !important;
+}
+
+::placeholder { 
+    color: #fff;
+  }

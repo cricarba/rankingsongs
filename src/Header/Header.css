@@ -1,0 +1,48 @@
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;  
+    align-items: center; 
+}
+
+.appName {
+    font-size: 2em;
+    color: #9858f0;
+}
+
+.icon{
+    background-color: #9858f0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex; 
+    color:#000; 
+    border: transparent;
+    align-items: center; 
+    padding: 5px;
+}
+
+.container-votes{
+    background-color: #251732; 
+    width: 50%;
+    height: 30px;
+    border-radius: 23px;
+    display: flex; 
+    color:#fff; 
+    align-items: center; 
+}
+
+.star{
+     
+    width: 20px;
+    height: 20px;  
+
+ padding: 5px;
+    border: transparent;
+   
+    
+}
+.votes{
+    font-size: 1em;
+    color:#fff;
+}
