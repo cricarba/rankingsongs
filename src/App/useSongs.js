@@ -1,8 +1,5 @@
 import React from "react";
 
-
-const SongContext = React.createContext();
-
 const songsDefault = [
     {
         id: 1,
@@ -28,8 +25,9 @@ const songsDefault = [
     },
 
 ]
-function SongProvider(props) {
 
+function useSongs() 
+{
     const [loading, setloading] = React.useState(true);
     const [votedSongs, setvotedSongs] = React.useState(true);
 
@@ -59,19 +57,15 @@ function SongProvider(props) {
     }, [votedSongs]);
 
 
-    return (
-        <SongContext.Provider value={{
-            loading,
-            searchValue,
-            votedSongs,
-            songsFilter,
-            VoteSong,
-            setSearchValue
+    return {
+      loading,
+      searchValue,
+      votedSongs,
+      songsFilter,
+      VoteSong,
+      setSearchValue
 
-        }}>
-            {props.children}
-        </SongContext.Provider>
-    )
+    };
 }
 
-export { SongContext, SongProvider };
+export { useSongs };

@@ -1,10 +1,9 @@
 import React from "react";
 import './SearchSong.css'
-import { SongContext } from "../SongContext";
+ 
 
-function SearchSong() {
-    const {searchValue, setSearchValue} = React.useContext(SongContext)
-    const onSearchValueChange = (event) => {
+function SearchSong({searchValue, setSearchValue}) {
+         const onSearchValueChange = (event) => {
         setSearchValue(event.target.value)        
     };
 

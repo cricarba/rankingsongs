@@ -1,19 +1,18 @@
 import React from "react";
-import { SongContext } from "../SongContext";
 import './vote.css'
 
-function Vote(props) {
-    const {VoteSong} = React.useContext(SongContext);
+function Vote({VoteSong,songId,value}) {
+   
     const votar = ()=>{
-        VoteSong(props.songId, props.value);
+        VoteSong(songId, value);
     }
     return (
         <React.Fragment>
 
             <input type="radio"
                 name="stars"
-                id={props.value}
-                value={props.value}
+                id={value}
+                value={value}
                 />
             <label for="star-a"  onClick={votar}></label>
 

@@ -1,9 +1,8 @@
 import React from 'react'
-import { SongContext } from '../SongContext';
 import './Header.css'
 
-function Header() {
-    const { votedSongs } = React.useContext(SongContext)
+function Header({votedSongs}) {
+   
     return (
         <React.Fragment >
             <div className="container">
