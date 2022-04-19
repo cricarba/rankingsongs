@@ -28,7 +28,7 @@ const songsDefault = [
 
 function useSongs() 
 {
-    const [loading, setloading] = React.useState(true);
+    const [searchEmpty, setsearchEmpty] = React.useState(false);
     const [votedSongs, setvotedSongs] = React.useState(true);
 
 
@@ -43,22 +43,22 @@ function useSongs()
         newSongs[songIndex].voted = true;
         newSongs[songIndex].votes += vote;
         let votedSong = songs.reduce((a, b) => a + b.votes, 0)
-        setSongs(newSongs);
-        setloading(false);
+        setSongs(newSongs);       
         setvotedSongs(votedSong);
     }
 
     React.useEffect(() => {
-        console.log("cambio la lista ordenada")
+        let a = songsFilter.length > 0;
+        setsearchEmpty(a);
     }, [songsFilter]);
 
     React.useEffect(() => {
-        console.log("cambio la lista votedSongs")
-    }, [votedSongs]);
+        console.log(searchValue);   
+    }, [searchValue]);
 
 
     return {
-      loading,
+      searchEmpty,
       searchValue,
       votedSongs,
       songsFilter,

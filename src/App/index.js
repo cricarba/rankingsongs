@@ -3,39 +3,41 @@ import { useSongs} from './useSongs';
 import { Header } from '../Header';
 import { LeaderBoard } from '../LeaderBoard';
 import { SearchSong } from '../SearchSong';
-import { Song } from '../Song';
-import { Vote } from '../Vote'
+import { ListSong } from '../ListSong';
+import {SearchEmpty} from '../SearchEmpty'
+import {Song} from '../Song';
+import {Vote} from '../Vote';
 import './App.css'
-
-const votes = [
-  {
-      value: 1
-  },
-  {
-      value: 2
-  },
-  {
-      value: 3
-  },
-  {
-      value: 4
-  },
-  {
-      value: 5
-  },
-]
 
 
 function App() {
 
   const {
-      loading,
+      searchEmpty,
       searchValue,
       songsFilter,
       setSearchValue,
       votedSongs,
       VoteSong
   } = useSongs();
+
+  const stars = [
+    {
+        value: 1
+    },
+    {
+        value: 2
+    },
+    {
+        value: 3
+    },
+    {
+        value: 4
+    },
+    {
+        value: 5
+    },
+  ]
 
   return (
       <React.Fragment>
@@ -45,23 +47,28 @@ function App() {
               searchValue={searchValue}
               setSearchValue={setSearchValue} />
 
-          {loading && <p>Cargando</p>}
-          {(!loading && !songsFilter.length) && <p>Sin canciones</p>}
+          <ListSong 
+           searchEmpty = {searchEmpty}
+           songsFilter = {songsFilter}
+           VoteSong = {VoteSong}
+           
+           SearchEmpty = {() => <SearchEmpty searchText={searchValue} />}
+           render = { song => (
+            <Song key={song.id}
+                name={song.name}
+                image={song.image}
+                votes={song.votes}
+                voted={song.voted}
+                startList = {stars}
+                render = { vote => (
+                    <Vote key={vote.value} value={vote.value} songId={song.id} VoteSong={VoteSong} />
+                )}
+            />
 
-          {songsFilter.map(song => (
-              <Song key={song.id}
-                  name={song.name}
-                  image={song.image}
-                  votes={song.votes}
-                  voted={song.voted}
-                  
-              >
-                  {votes.map(vote => (
-                      <Vote key={vote.value} value={vote.value} songId={song.id} VoteSong={VoteSong} />
-                  ))}
+            )}
+          />
 
-              </Song>
-          ))}
+          
       </React.Fragment>
 
   );

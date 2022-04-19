@@ -5,21 +5,19 @@ import './Song.css'
 
 
 
-function Song({children, voted, votes, name, image}) {
+function Song(props) {
    
     return (
         <React.Fragment>
+          
             <div className="container-song">
-                <div> <img className='album' src={image} /></div>
-                <div> <span>{name}</span></div>
+                <div> <img className='album' src={props.image} /></div>
+                <div> <span>{props.name}</span></div>
                 <div className="star-rating">
-                    {children}
+                {props.startList.map(vote => props.render(vote))}
                 </div>
-                <div> <span className={` ${voted && 'song-voted'}`}>{votes}</span></div>
-
+                <div> <span className={` ${props.voted && 'song-voted'}`}>{props.votes}</span></div>
             </div>
-
-
         </React.Fragment>
     )
 }
