@@ -1,9 +1,9 @@
 import React from "react";
 import './vote.css'
 
-function Vote({VoteSong,songId,value}) {
-   
-    const votar = ()=>{
+function Vote({ VoteSong, songId, value }) {
+
+    const votar = () => {
         VoteSong(songId, value);
     }
     return (
@@ -13,8 +13,8 @@ function Vote({VoteSong,songId,value}) {
                 name="stars"
                 id={value}
                 value={value}
-                />
-            <label for="star-a"  onClick={votar}></label>
+            />
+            <label onClick={votar}></label>
 
         </React.Fragment>
     )

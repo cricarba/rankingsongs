@@ -1,6 +1,6 @@
 import React from "react";
 
-function   SearchEmpty(props){
+function SearchEmpty(props) {
     return (
         <React.Fragment>
             <p className="title">There isn´t result for this search {props.searchText}</p>
@@ -8,4 +8,4 @@ function   SearchEmpty(props){
     )
 }
 
-export {SearchEmpty};
+export { SearchEmpty };

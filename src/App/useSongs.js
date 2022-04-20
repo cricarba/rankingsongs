@@ -26,16 +26,15 @@ const songsDefault = [
 
 ]
 
-function useSongs() 
-{
+function useSongs() {
     const [searchEmpty, setsearchEmpty] = React.useState(false);
+    const [loading, setLoading] = React.useState(true);
     const [votedSongs, setvotedSongs] = React.useState(true);
-
-
+    const [songsFilter, setsongsFilter] = React.useState(songsDefault);
     const [songs, setSongs] = React.useState(songsDefault);
     const [searchValue, setSearchValue] = React.useState('');
 
-    let songsFilter = songs.filter(song => song.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
+
 
     const VoteSong = (id, vote) => {
         let songIndex = songs.findIndex(song => song.id === id);
@@ -43,27 +42,35 @@ function useSongs()
         newSongs[songIndex].voted = true;
         newSongs[songIndex].votes += vote;
         let votedSong = songs.reduce((a, b) => a + b.votes, 0)
-        setSongs(newSongs);       
+        setSongs(newSongs);
         setvotedSongs(votedSong);
     }
 
     React.useEffect(() => {
-        let a = songsFilter.length > 0;
-        setsearchEmpty(a);
+        let searchIsEmpty = songsFilter.length > 0;
+        setsearchEmpty(searchIsEmpty);
     }, [songsFilter]);
 
     React.useEffect(() => {
-        console.log(searchValue);   
-    }, [searchValue]);
+        setLoading(true);
+        setTimeout(() => {
+            console.log(searchValue);
+            let songsfilter = songs.filter(song => song.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
+            setsongsFilter(songsfilter);
+            setLoading(false);
+        }, 1000);
+
+    }, [searchValue, songs]);
 
 
     return {
-      searchEmpty,
-      searchValue,
-      votedSongs,
-      songsFilter,
-      VoteSong,
-      setSearchValue
+        loading,
+        searchEmpty,
+        searchValue,
+        votedSongs,
+        songsFilter,
+        VoteSong,
+        setSearchValue
 
     };
 }

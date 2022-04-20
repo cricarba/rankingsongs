@@ -1,15 +1,16 @@
 import React from "react";
 
-  
-function ListSong(props){
-   
+
+function ListSong(props) {
+
     return (
         <React.Fragment>
-             {!props.searchEmpty && props.SearchEmpty()}
-             {props.songsFilter.map(song => props.render(song))}
-        
+            {props.loading && props.LoadingList()}
+            {!props.loading && !props.searchEmpty && props.SearchEmpty()}
+            {!props.loading && props.songsFilter.map(song => props.render(song))}
+
         </React.Fragment>
     )
 }
 
-export {ListSong};
+export { ListSong };

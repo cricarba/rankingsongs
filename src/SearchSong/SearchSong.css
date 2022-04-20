@@ -12,3 +12,7 @@
 ::placeholder { 
     color: #fff;
   }
+
+.search-input:disabled{
+    opacity: 25%;
+}
